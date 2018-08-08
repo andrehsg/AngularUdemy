@@ -10,6 +10,13 @@ styleUrls: ['./../app.component.css']
 export class ServerComponent {
 	
 title = 'Server';
+serverId: number = 13;
+serverStatus: string = 'online';
+
+getServerStatus () {
+	
+	return this.serverStatus;
+}
 
 	
 	
