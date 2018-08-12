@@ -1,3 +1,17 @@
 <font size="3" color="blue">Task successful!!!!</font>
 <p> <p>
 <img src="http://s.glbimg.com/es/ge/f/original/2016/12/22/guarani1.jpg">
+
+ <h1>
+    Welcome to {{ title }}!
+  </h1>
+ Username:{{userName}}
+   <input class="form-control" [(ngModel)]="userName" > 
+  
+  <p>
+    <button class="btn btn-primary"
+       [disabled]="onCheckIsEmpty()"
+       (click)="onResetUserName($event)"> Reset user
+    </button>
+
+<p> 

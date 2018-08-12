@@ -15,6 +15,7 @@ serverStatus: string = 'online';
 
 getServerStatus () {
 	
+	this.serverStatus = Math.random() > 0.5? 'online': 'offline';
 	return this.serverStatus;
 }
 

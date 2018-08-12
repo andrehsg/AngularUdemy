@@ -7,7 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarningAlertComponent implements OnInit {
 
-  constructor() { }
+title = 'app';
+userName = '';
+
+
+
+onResetUserName(event: Event) {
+
+
+this.userName = '';
+}
+
+onCheckIsEmpty(): boolean {
+console.log();
+
+if (this.userName === '')
+	return true;
+else return false;
+}
+
+  
 
   ngOnInit() {
   }
