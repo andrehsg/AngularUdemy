@@ -1,0 +1,16 @@
+<p>
+  praticavideo37 works!
+
+  Exercise. <p>
+<button
+  class="btn btn-primary"
+  (click)="logExercise()"> Display details
+</button>
+<p *ngIf="!secretVisible"> secret paragraph
+</p>
+<div *ngFor="let logItem of logArray; index as i" [ngStyle]="{'background-color': i >= 4 ? 'blue': 'transparent'}"
+	[ngClass]="{online: i>=4}">
+
+{{logItem}}
+</div>
+

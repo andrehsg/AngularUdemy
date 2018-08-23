@@ -11,6 +11,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = true;
   serverName = 'testServer';
   serverCreated = false;
+  logArray = '';
   
   constructor() { 
 
@@ -42,9 +43,9 @@ export class ServersComponent implements OnInit {
 
   this.serverName = (<HTMLInputElement>event.target).value;
 
-
-
   }
+
+
 
   ngOnInit() {
   }

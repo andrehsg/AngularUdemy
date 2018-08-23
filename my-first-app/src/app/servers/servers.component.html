@@ -1,4 +1,4 @@
-Escreva o nome do server a ser criado:
+Escreva o nome do server a ser criado: {{serverName}}
 <!--  <input class="form-control" (input)="onUpdateServerName($event)" > -->
  
  <input class="form-control" [(ngModel)]="serverName" > 
@@ -11,6 +11,9 @@ Escreva o nome do server a ser criado:
   (click)="onCreateServer()"> Add new server is {{allowNewServer}} 
 </button>
 <p *ngIf="serverCreated"> Server was created, name is {{serverName}} </p>
+
+
+
 
 <app-server> </app-server>
 <app-server> </app-server>
