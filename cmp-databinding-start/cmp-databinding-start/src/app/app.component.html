@@ -1,0 +1,41 @@
+<div class="container">
+
+<app-game-control
+(gameStarted)="onGameStarted($event)"
+(gameStopped)="onGameStopped($event)"
+>
+</app-game-control>
+<p>Number: {{count | json}}
+	</p>
+
+
+   <div>
+  	<p *ngFor="let item of numberList">
+	  	 <app-odd *ngIf="item.count%2 == 0">
+	  		{{item.count}}
+	  	</app-odd>
+	  	<app-even *ngIf="item.count%2 != 0">
+	  		{{item.count}}
+	  	</app-even>
+
+  </div>
+
+
+  <app-cockpit
+  (serverCreated)="onServerAdded($event)"
+  (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+<app-server-element
+*ngFor="let server of serverElements"
+[element]="server">
+<p #contentP>
+<strong *ngIf="server.type === 'server'" style="color: red">{{ server.content }}</strong>
+<em *ngIf="server.type === 'blueprint'" style="color: blue">{{ server.content }}</em>
+</p>
+ </app-server-element>
+    </div>
+  </div>
+</div>
