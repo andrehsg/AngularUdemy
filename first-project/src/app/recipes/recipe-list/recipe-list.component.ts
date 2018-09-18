@@ -19,7 +19,7 @@ receitas: Recipe[] = [ new Recipe('A test recipe', 'Some ingredients' , 'https:/
 
   onRecipeItemSelected (recipe: Recipe) {
 
-    console.log("onClickReceita - recipeList"+recipe.name);
+    console.log("onClickReceita - recipeList"+recipe.i);
   	this.recipeSelected.emit(recipe);
   }
 

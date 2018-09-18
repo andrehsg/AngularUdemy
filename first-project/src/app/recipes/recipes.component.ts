@@ -12,11 +12,13 @@ export class RecipesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  console.log("Recipe component ngOnInit");
   }
 
-  onRecipeItemSelectedd (recipe: Recipe) {
+  onRecipeItemSelected (recipe: Recipe) {
 
-     console.log("Recipe component"+ recipe.name);
+     
+     console.log("Recipe component"+recipe.name);
      this.selectedRecipe = recipe;
 
 
