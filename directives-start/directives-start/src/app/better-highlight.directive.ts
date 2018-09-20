@@ -12,7 +12,6 @@ export class BetterHighlightDirective implements OnInit{
   ngOnInit() {
 
       this.bgColor = this.defaultColor;
-   
   }
 
   @HostListener('mouseenter') myMouseOver(eventData: Event){ 
@@ -21,6 +20,7 @@ export class BetterHighlightDirective implements OnInit{
 
     @HostListener('mouseleave') myMouseLeave(eventData: Event){ 
   	this.bgColor = this.defaultColor;
+
   }
 
 }
