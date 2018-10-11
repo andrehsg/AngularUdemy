@@ -20,18 +20,22 @@ import { NotfoundComponent } from './notfound/notfound.component';
 const appRoutes: Routes = [
 
 { path: '', component: HomeComponent},
-{ path: 'users', component: UsersComponent, children: [
+{ path: 'users', component: UsersComponent,
+  children: [
 
-{ path: ':id/:name', component: UserComponent}
+  { path: ':id/:name', component: UserComponent}
 
-]
+  ]
 },
-{ path: 'servers', canActivate: [AuthGuardService], component: ServersComponent, children: [
+{ 
+  path: 'servers', canActivateChild: [AuthGuardService],
+  component: ServersComponent,
+  children: [
 
-{ path: ':id', component: ServerComponent},
-{ path: ':id/edit', component: EditServerComponent}
+  { path: ':id', component: ServerComponent},
+  { path: ':id/edit', component: EditServerComponent}
 
-]
+  ]
 },
 { path: 'not-found', component: NotfoundComponent},
 { path: '**', redirectTo: '/not-found'}
