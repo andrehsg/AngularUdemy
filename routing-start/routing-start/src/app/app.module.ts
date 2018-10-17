@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-component-deactivate';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
 
@@ -33,11 +35,11 @@ const appRoutes: Routes = [
   children: [
 
   { path: ':id', component: ServerComponent},
-  { path: ':id/edit', component: EditServerComponent}
+  { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]}
 
   ]
 },
-{ path: 'not-found', component: NotfoundComponent},
+{ path: 'not-found', component: ErrorPageComponent, data: {message: 'Page sssnot found'} },
 { path: '**', redirectTo: '/not-found'}
 ];
 
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ServersService, AuthService, AuthGuardService],
+  providers: [ServersService, AuthService, AuthGuardService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
