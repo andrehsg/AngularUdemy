@@ -15,6 +15,7 @@ import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 import { ServersService } from './servers/servers.service';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
   component: ServersComponent,
   children: [
 
-  { path: ':id', component: ServerComponent},
+  { path: ':id', component: ServerComponent, resolve: {server: ServerResolver}},
   { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]}
 
   ]
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ServersService, AuthService, AuthGuardService, CanDeactivateGuard],
+  providers: [ServersService, AuthService, AuthGuardService, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
