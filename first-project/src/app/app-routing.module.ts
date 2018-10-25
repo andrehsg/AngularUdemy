@@ -4,6 +4,7 @@ import { RecipesComponent } from './recipes/recipes.component';     // Add your 
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';  // Add your component here
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';  // Add your component here
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';  // Add your component here
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';  // Add your component here
 
 //This is my case 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
         component: RecipesComponent,
         children: [
           { path: '', component: RecipeStartComponent},
-          { path: ':id', component: RecipeDetailComponent}
+          { path: 'new', component: RecipeEditComponent},
+          { path: ':id', component: RecipeDetailComponent},
+          { path: ':id/edit', component: RecipeEditComponent}
 
 
           ]
