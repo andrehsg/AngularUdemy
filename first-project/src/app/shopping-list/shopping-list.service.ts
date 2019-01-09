@@ -12,7 +12,8 @@ export class ShoppingListService {
   new Ingredient('potato',2)
   ];
 
-  @Output() ingredientChanged = new Subject<Ingredient[]>();
+ ingredientChanged = new Subject<Ingredient[]>();
+ startedEditing = new Subject<number>();
 
   constructor() { 
 
@@ -24,9 +25,26 @@ export class ShoppingListService {
     this.ingredientChanged.next(this.ingredients.slice());
   }
 
+    updateIngredient (index: number, ing: Ingredient) {
+
+    this.ingredients[index] = ing;
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
+    deleteIngredient (index: number) {
+
+    this.ingredients.splice(index,1);
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
   getIngredient () {
 
   	return this.ingredients.slice();
+  }
+
+   getIngredients (index: number) {
+
+    return this.ingredients[index];
   }
 
 

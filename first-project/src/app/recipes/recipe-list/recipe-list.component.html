@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		<button class="btn btn-success" (click)="onNewRecipe()">New Recipe> </button>
+		<p *ngIf="error" style="color:green">{{error}} </p>
 	</div>
 </div>
 
